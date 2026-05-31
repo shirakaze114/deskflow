@@ -868,6 +868,14 @@ Additionally, check you are able to %1 the server config file: %2</source>
         <translation>Xinerama용 XTest</translation>
     </message>
     <message>
+        <source>Mouse Speed</source>
+        <translation>마우스 속도</translation>
+    </message>
+    <message>
+        <source>S&amp;ensitivity</source>
+        <translation>감도(&amp;S)</translation>
+    </message>
+    <message>
         <source>Aliases</source>
         <translation>별칭</translation>
     </message>

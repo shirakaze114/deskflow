@@ -26,6 +26,7 @@ void Screen::loadSettings(QSettingsProxy &settings)
     return;
 
   setSwitchCornerSize(settings.value("switchCornerSize").toInt());
+  setMouseScale(settings.value("mouseScale", 1.0).toDouble());
 
   readSettings(settings, aliases(), "alias", QString(""));
   readSettings(settings, modifiers(), "modifier", static_cast<int>(DefaultMod), static_cast<int>(NumModifiers));
@@ -41,6 +42,7 @@ void Screen::saveSettings(QSettingsProxy &settings) const
     return;
 
   settings.setValue("switchCornerSize", switchCornerSize());
+  settings.setValue("mouseScale", mouseScale());
 
   writeSettings(settings, aliases(), "alias");
   writeSettings(settings, modifiers(), "modifier");
@@ -70,6 +72,9 @@ QString Screen::screensSection() const
 
   out.append(lineTemplate.arg(QStringLiteral("switchCornerSize"), QString::number(switchCornerSize())));
 
+  if (mouseScale() != 1.0)
+    out.append(lineTemplate.arg(QStringLiteral("mouseScale"), QString::number(mouseScale(), 'f', 2)));
+
   return out;
 }
 
@@ -89,5 +94,6 @@ bool Screen::operator==(const Screen &screen) const
 {
   return m_Name == screen.m_Name && m_Aliases == screen.m_Aliases && m_Modifiers == screen.m_Modifiers &&
          m_SwitchCorners == screen.m_SwitchCorners && m_SwitchCornerSize == screen.m_SwitchCornerSize &&
-         m_Fixes == screen.m_Fixes && m_Swapped == screen.m_Swapped && m_isServer == screen.m_isServer;
+         m_Fixes == screen.m_Fixes && m_Swapped == screen.m_Swapped && m_isServer == screen.m_isServer &&
+         m_MouseScale == screen.m_MouseScale;
 }

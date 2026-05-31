@@ -31,13 +31,13 @@ class Screen : public ScreenConfig
   friend QDataStream &operator<<(QDataStream &outStream, const Screen &screen)
   {
     return outStream << screen.name() << screen.switchCornerSize() << screen.aliases() << screen.modifiers()
-                     << screen.switchCorners() << screen.fixes() << screen.isServer();
+                     << screen.switchCorners() << screen.fixes() << screen.isServer() << screen.mouseScale();
   }
 
   friend QDataStream &operator>>(QDataStream &inStream, Screen &screen)
   {
     return inStream >> screen.m_Name >> screen.m_SwitchCornerSize >> screen.m_Aliases >> screen.m_Modifiers >>
-           screen.m_SwitchCorners >> screen.m_Fixes >> screen.m_isServer;
+           screen.m_SwitchCorners >> screen.m_Fixes >> screen.m_isServer >> screen.m_MouseScale;
   }
 
 public:
@@ -94,6 +94,10 @@ public:
   [[nodiscard]] QString screensSection() const;
   [[nodiscard]] QString aliasesSection() const;
 
+  [[nodiscard]] double mouseScale() const
+  {
+    return m_MouseScale;
+  }
   [[nodiscard]] bool swapped() const
   {
     return m_Swapped;
@@ -155,6 +159,10 @@ protected:
   {
     m_Swapped = on;
   }
+  void setMouseScale(double scale)
+  {
+    m_MouseScale = scale;
+  }
 
 private:
   QPixmap m_Pixmap = QIcon::fromTheme("video-display").pixmap(QSize(96, 96));
@@ -166,4 +174,5 @@ private:
   QList<bool> m_Fixes{false, false, false, false};
   bool m_Swapped = false;
   bool m_isServer = false;
+  double m_MouseScale = 1.0;
 };

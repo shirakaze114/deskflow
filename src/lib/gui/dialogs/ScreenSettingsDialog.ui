@@ -542,70 +542,129 @@
      </item>
      <item>
       <layout class="QVBoxLayout" name="layoutRightSide">
-       <item>
-        <widget class="QGroupBox" name="groupFixes">
-         <property name="title">
-          <string>Fixes</string>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_3">
-          <item>
-           <widget class="QCheckBox" name="chkFixScrollLock">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>SCROLL LOCK key</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="chkFixCapsLock">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>CAPS LOCK key</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="chkFixNumLock">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>NUM LOCK key</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="chkFixXTest">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>XTest for Xinerama</string>
-            </property>
-            <property name="checked">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
+        <item>
+         <widget class="QGroupBox" name="groupFixes">
+          <property name="title">
+           <string>Fixes</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QCheckBox" name="chkFixScrollLock">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>SCROLL LOCK key</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="chkFixCapsLock">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>CAPS LOCK key</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="chkFixNumLock">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>NUM LOCK key</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="chkFixXTest">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>XTest for Xinerama</string>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupMouseSpeed">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Mouse Speed</string>
+          </property>
+          <layout class="QHBoxLayout" name="layoutMouseSpeed">
+           <item>
+            <widget class="QLabel" name="labelMouseScale">
+             <property name="text">
+              <string>S&amp;ensitivity</string>
+             </property>
+             <property name="buddy">
+              <cstring>sbMouseScale</cstring>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDoubleSpinBox" name="sbMouseScale">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>70</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="suffix">
+              <string>x</string>
+             </property>
+             <property name="decimals">
+              <number>2</number>
+             </property>
+             <property name="minimum">
+              <double>0.10</double>
+             </property>
+             <property name="maximum">
+              <double>10.00</double>
+             </property>
+             <property name="singleStep">
+              <double>0.10</double>
+             </property>
+             <property name="value">
+              <double>1.00</double>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
        <item>
         <widget class="QGroupBox" name="groupAliases">
          <property name="sizePolicy">
@@ -755,8 +814,9 @@
   <tabstop>chkFixScrollLock</tabstop>
   <tabstop>chkFixCapsLock</tabstop>
   <tabstop>chkFixNumLock</tabstop>
-  <tabstop>chkFixXTest</tabstop>
-  <tabstop>lineAddAlias</tabstop>
+   <tabstop>chkFixXTest</tabstop>
+   <tabstop>sbMouseScale</tabstop>
+   <tabstop>lineAddAlias</tabstop>
   <tabstop>btnAddAlias</tabstop>
   <tabstop>listAliases</tabstop>
   <tabstop>btnRemoveAlias</tabstop>

@@ -870,6 +870,14 @@ Additionally, check you are able to %1 the server config file: %2</source>
         <translation type="unfinished">用于 Xinerama 的 XTest</translation>
     </message>
     <message>
+        <source>Mouse Speed</source>
+        <translation>鼠标速度</translation>
+    </message>
+    <message>
+        <source>S&amp;ensitivity</source>
+        <translation>灵敏度(&amp;S)</translation>
+    </message>
+    <message>
         <source>Aliases</source>
         <translation>别名</translation>
     </message>

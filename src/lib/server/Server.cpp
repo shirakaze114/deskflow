@@ -1716,16 +1716,18 @@ void Server::onMouseMoveSecondary(int32_t dx, int32_t dy)
 {
   LOG_VERBOSE("mouse move on secondary: %+d,%+d", dx, dy);
 
-  // TODO: move this to client side and use a qt setting or cli arg instead of env var.
-  const static auto adjustEnv = "DESKFLOW_MOUSE_ADJUSTMENT";
-  if (const char *envVal = std::getenv(adjustEnv); envVal) {
-    try {
-      double multiplier = std::stod(envVal);
-      dx = static_cast<int32_t>(std::round(dx * multiplier));
-      dy = static_cast<int32_t>(std::round(dy * multiplier));
-      LOG_VERBOSE("adjusted mouse x %.2f: %+d,%+d", multiplier, dx, dy);
-    } catch (const std::exception &e) {
-      LOG_ERR("invalid %s value: %s", adjustEnv, e.what());
+  const Config::ScreenOptions *options = m_config->getOptions(getName(m_active));
+  if (options == nullptr || !options->contains(kOptionMouseScale)) {
+    options = m_config->getOptions("");
+  }
+  if (options != nullptr) {
+    auto i = options->find(kOptionMouseScale);
+    if (i != options->end()) {
+      double scale = static_cast<double>(i->second) / 1000.0;
+      if (scale > 0.0) {
+        dx = static_cast<int32_t>(std::round(static_cast<double>(dx) * scale));
+        dy = static_cast<int32_t>(std::round(static_cast<double>(dy) * scale));
+      }
     }
   }
 

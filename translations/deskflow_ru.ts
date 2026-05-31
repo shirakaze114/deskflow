@@ -868,6 +868,14 @@ Additionally, check you are able to %1 the server config file: %2</source>
         <translation>XTest для Xinerama</translation>
     </message>
     <message>
+        <source>Mouse Speed</source>
+        <translation>Скорость мыши</translation>
+    </message>
+    <message>
+        <source>S&amp;ensitivity</source>
+        <translation>Чу&amp;вствительность</translation>
+    </message>
+    <message>
         <source>Aliases</source>
         <translation>Псевдонимы</translation>
     </message>

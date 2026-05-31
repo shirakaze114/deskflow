@@ -868,6 +868,14 @@ Además, verifique que puede %1 el archivo de configuración del servidor: %2</t
         <translation type="unfinished">XTest para Xinerama</translation>
     </message>
     <message>
+        <source>Mouse Speed</source>
+        <translation type="unfinished">Velocidad del ratón</translation>
+    </message>
+    <message>
+        <source>S&amp;ensitivity</source>
+        <translation type="unfinished">Sen&amp;sibilidad</translation>
+    </message>
+    <message>
         <source>Aliases</source>
         <translation type="unfinished">Alias</translation>
     </message>

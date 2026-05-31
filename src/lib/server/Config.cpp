@@ -799,6 +799,8 @@ void Config::readSectionScreens(ConfigReadContext &s)
         addOption(screen, kOptionScreenSwitchCornerSize, s.parseInt(value));
       } else if (name == "preserveFocus") {
         addOption(screen, kOptionScreenPreserveFocus, s.parseBoolean(value));
+      } else if (name == "mouseScale") {
+        addOption(screen, kOptionMouseScale, static_cast<int32_t>(std::stod(value) * 1000.0));
       } else {
         // unknown argument
         throw ServerConfigReadException(s, "unknown argument \"%{1}\"", name);
@@ -1260,6 +1262,9 @@ const char *Config::getOptionName(OptionID id)
   if (id == kOptionClipboardSharingSize) {
     return "clipboardSharingSize";
   }
+  if (id == kOptionMouseScale) {
+    return "mouseScale";
+  }
   return nullptr;
 }
 
@@ -1300,6 +1305,9 @@ std::string Config::getOptionValue(OptionID id, OptionValue value)
   if (id == kOptionHeartbeat || id == kOptionScreenSwitchCornerSize || id == kOptionScreenSwitchDelay ||
       id == kOptionScreenSwitchTwoTap) {
     return deskflow::string::sprintf("%d", value);
+  }
+  if (id == kOptionMouseScale) {
+    return deskflow::string::sprintf("%.2f", static_cast<double>(value) / 1000.0);
   }
   if (id == kOptionScreenSwitchCorners) {
     std::string result("none");
